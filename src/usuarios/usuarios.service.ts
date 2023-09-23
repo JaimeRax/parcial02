@@ -18,15 +18,15 @@ export class UsuariosService {
     return await this.userRepositoy.save(newUser);
   }
 
-  async findAll() {
+  async ListarTodos() {
     return await this.userRepositoy.find();
   }
 
-  async findOne(id: number): Promise<UsuarioEntity | undefined> {
+  async obtenerUno(id: number): Promise<UsuarioEntity | undefined> {
     return await this.userRepositoy.findOne({ where: { id } });
   }
 
-  async update(id: number, updateUsuarioDto: UpdateUsuarioDto): Promise<UsuarioEntity | undefined> {
+  async actualizarUsuario(id: number, updateUsuarioDto: UpdateUsuarioDto): Promise<UsuarioEntity | undefined> {
     const userExist = await this.userRepositoy.findOne({ where: { id } });
     if (!userExist){
       return undefined;
@@ -45,7 +45,7 @@ export class UsuariosService {
     return await this.userRepositoy.save(userExist);
   }
 
-  async remove(id: number):  Promise<void> {
+  async eliminarUsuario(id: number):  Promise<void> {
     await this.userRepositoy.delete(id);
   }
 

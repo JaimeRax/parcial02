@@ -17,6 +17,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         autoLoadEntities: true,
     }),
     UsuariosModule,
+    AppController,
     // Otros módulos importados
 ],
 
